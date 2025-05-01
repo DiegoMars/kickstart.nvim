@@ -1,4 +1,4 @@
-# starterPack.nvim
+# kickstart.nvim
 
 ## Introduction
 
