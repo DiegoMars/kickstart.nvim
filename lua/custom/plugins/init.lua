@@ -4,3 +4,5 @@
 -- See the kickstart.nvim README for more information
 require 'custom.plugins.myremap'
 print 'Hello from me'
+
+return {}
