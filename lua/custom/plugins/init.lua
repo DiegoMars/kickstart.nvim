@@ -2,7 +2,9 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-require 'custom.plugins.myremap'
+
+-- Added a column ruler at 80 characters
+vim.opt.colorcolumn = "80,100"
 print 'Hello from me'
 
 return {}
