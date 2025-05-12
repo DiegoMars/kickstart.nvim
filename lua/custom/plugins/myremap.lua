@@ -20,4 +20,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- 
+-- HTML rempas. These are run html sites with just keyboard shortcuts
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "html",
+  callback = function()
+    vim.keymap.set('n', '<Leader>r', function()
+      local file = vim.fn.expand('%:p')  -- full path of current file
+      local open_cmd
+      -- This only works when in windows
+      if vim.fn.has('win32') == 1 then
+        open_cmd = 'start "" "' .. file .. '"'
+      else
+      -- This is for Ubuntu, but idk where else it could work 
+        open_cmd = 'xdg-open "' .. file .. '"'
+      end
+      os.execute(open_cmd)
+    end, { buffer = true, desc = '[R]un HTML' })
+  end,
+})
+
 return {}
