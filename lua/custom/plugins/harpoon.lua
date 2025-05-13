@@ -37,12 +37,12 @@ return {
     -- Toggle previous & next buffers stored within Harpoon list
     -- This does not work in windows because of pwsh keybinds
     -- Specifically <C-S-P> stuff
-    vim.keymap.set('n', '<C-S-P>', function()
+    vim.keymap.set('n', '<leader>p', function()
       harpoon:list():prev()
-    end)
-    vim.keymap.set('n', '<C-S-N>', function()
+    end, {desc = '[p]revious'})
+    vim.keymap.set('n', '<leader>n', function()
       harpoon:list():next()
-    end)
+    end, {desc = '[n]ext'})
 
     -- Keybind to remove file from harpoon's list
     vim.keymap.set('n', '<leader>hr', function()
