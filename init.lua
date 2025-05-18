@@ -247,10 +247,12 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  { 'NMAC427/guess-indent.nvim',
-    config = function ()
+  {
+    'NMAC427/guess-indent.nvim',
+    config = function()
       require('guess-indent').setup {}
-    end}, -- Detect tabstop and shiftwidth automatically
+    end,
+  }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -676,8 +678,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        pylsp = {},
-        html = {},
+        pylsp = {}, -- For python, requires python to be installed by administer
+        html = {}, -- For html, requires node.js
+        -- flow = {}, -- For javascript
+        oxlint = {}, -- Decided to go with this instead for javascript
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -807,10 +811,10 @@ require('lazy').setup({
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
           {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
+            -- 'rafamadriz/friendly-snippets',
+            -- config = function()
+            --   require('luasnip.loaders.from_vscode').lazy_load()
+            -- end,
           },
         },
         opts = {},
@@ -901,7 +905,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'lunaperche'
+      vim.cmd.colorscheme 'unokai'
     end,
   },
 
@@ -951,7 +955,22 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'python', 'cpp' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'python',
+        'cpp',
+        'javascript',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
