@@ -682,6 +682,7 @@ require('lazy').setup({
         html = {}, -- For html, requires node.js
         -- flow = {}, -- For javascript
         oxlint = {}, -- Decided to go with this instead for javascript
+        css_variables = {},
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
