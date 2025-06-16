@@ -7,4 +7,14 @@
 vim.opt.colorcolumn = "80,100"
 print 'Hello from me'
 
+-- Set tab size
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "javascript", "html", "css", "python", "cpp" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
 return {}
