@@ -75,4 +75,21 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+--
+-- Astro remaps
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'astro',
+  callback = function()
+    vim.keymap.set('n', '<leader>r', function()
+      local cmd
+      if vim.fn.has 'win32' == 1 then
+        cmd = { 'cmd.exe', '/k', 'npm run dev' }
+      else
+        cmd = { 'gnome-terminal', '--', 'bash', '-c', 'npm run dev; exec bash' }
+      end
+      vim.fn.jobstart(cmd, { detach = true })
+    end, { buffer = true, desc = '[R]un Astro' })
+  end,
+})
+
 return {}
