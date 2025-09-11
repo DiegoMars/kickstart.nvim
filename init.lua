@@ -681,9 +681,12 @@ require('lazy').setup({
         pylsp = {}, -- For python, requires python to be installed by administer
         html = {}, -- For html, requires node.js
         -- flow = {}, -- For javascript
-        oxlint = {}, -- Decided to go with this instead for javascript
         css_variables = {},
         astro = {},
+        cssmodules_ls = {}, -- For react css modules
+        eslint = {
+          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+        }, -- For js and ts linting
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
