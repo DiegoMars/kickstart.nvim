@@ -685,7 +685,7 @@ require('lazy').setup({
         astro = {},
         cssmodules_ls = {}, -- For react css modules
         eslint = {
-          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+          filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
         }, -- For js and ts linting
         -- clangd = {},
         -- gopls = {},
